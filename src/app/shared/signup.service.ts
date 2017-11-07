@@ -35,4 +35,8 @@ export class SignupService {
   getSubscriptionTypes() {
     return this.subscriptionTypes.slice();
   }
+
+  getSubscriptionType(index:number) {
+    return this.subscriptionTypes[index];
+  }
 }

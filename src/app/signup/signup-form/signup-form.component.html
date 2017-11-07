@@ -7,6 +7,7 @@
         formControlName="name"
         name="name"
         type="text"
+        required
       />
   </div>
 
@@ -18,6 +19,7 @@
         name="email"
         type="email"
         email
+        required
       />
   </div>
 
@@ -28,7 +30,28 @@
         formControlName="password"
         name="password"
         type="password"
+        required
       />
+  </div>
+
+  <!-- TODO: Set default value! -->
+  <div class="form-group">
+    <label for="subscriptionType">Subscription Type</label>
+    <select
+      name="subscriptionType"
+      class="form-control"
+      formControlName="subscriptionType"
+      placeholder="Please pick from a subscription type below."
+      required
+    >
+      <option
+        *ngFor="let type of subscriptionTypes; let i = index"
+        [value]="type.id"
+        [selected]="i == 0"
+      >
+        {{ type.name }} - {{ type.price | currency }}
+      </option>
+    </select>
   </div>
 
   <div class='pull-right'>
