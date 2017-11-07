@@ -10,6 +10,8 @@ import { SignupService } from '../../shared/signup.service';
 })
 export class SignupFormComponent implements OnInit {
   signupForm:FormGroup;
+  showResetModal:boolean = false;
+  showSubmitModal:boolean = false;
 
   constructor(
     private signupService:SignupService
@@ -24,7 +26,20 @@ export class SignupFormComponent implements OnInit {
   }
 
   onSubmit() {
+    
+  }
 
+  onReset() {
+    // Popup Modal to confirm reset.
+    // If true, initForm(), else hide modal.
+  }
+
+  initForm() {
+    this.signupForm = new FormGroup({
+      'name': new FormControl(null),
+      'email':new FormControl(null, Validators.email),
+      'password':new FormControl(null)
+    });
   }
 
 }
