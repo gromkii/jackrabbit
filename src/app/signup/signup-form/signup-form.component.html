@@ -46,8 +46,8 @@
     >
       <option
         *ngFor="let type of subscriptionTypes; let i = index"
-        [value]="type.id"
-        [selected]="i == 0"
+        [ngValue]="type.id"
+        [selected]="type.id === 0"
       >
         {{ type.name }} - {{ type.price | currency }}
       </option>

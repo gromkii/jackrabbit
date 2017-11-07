@@ -22,7 +22,6 @@ export class SignupFormComponent implements OnInit {
 
   ngOnInit() {
     this.subscriptionTypes = this.signupService.getSubscriptionTypes();
-
     this.initForm();
   }
 
@@ -51,8 +50,8 @@ export class SignupFormComponent implements OnInit {
       'email':new FormControl(null, [Validators.email, Validators.required]),
       'password':new FormControl(null, Validators.required), //Might add additional validators.
       'subscriptionType':new FormControl(
-        this.signupService.getSubscriptionType(0),
-        [Validators.required]
+        0,
+        Validators.required
       )
     });
   }
