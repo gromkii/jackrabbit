@@ -61,9 +61,9 @@ export class SignupFormComponent implements OnInit {
   // Initialize the form so that we can use ReactiveForms to control values/whatever.
   initForm() {
     this.signupForm = new FormGroup({
-      'name': new FormControl(null, Validators.required),
-      'email':new FormControl(null, [Validators.email, Validators.required]),
-      'password':new FormControl(null, Validators.required), //Might add additional validators.
+      'name': new FormControl('', Validators.required),
+      'email':new FormControl('', [Validators.email, Validators.required]),
+      'password':new FormControl('', Validators.required), //Might add additional validators.
       'subscriptionType':new FormControl(
         0,
         Validators.required

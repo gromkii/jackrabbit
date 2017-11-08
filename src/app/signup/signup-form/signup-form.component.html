@@ -10,6 +10,13 @@
         required
         #name
       />
+
+      <p
+        class="small-text"
+        *ngIf="signupForm.get('name').value === '' && signupForm.get('name').touched"
+      >
+        Name field is required!
+      </p>
   </div>
 
   <div class="form-group">
@@ -23,6 +30,20 @@
         required
         #email
       />
+      <p
+        class="small-text"
+        *ngIf="signupForm.get('email').value === '' && signupForm.get('email').touched"
+      >
+        Email field is required!
+      </p>
+      <p
+        class="small-text"
+        *ngIf="signupForm.get('email').hasError('email') && signupForm.get('email').touched"
+      >
+        Valid email required!
+      </p>
+
+
   </div>
 
   <div class="form-group">
@@ -35,6 +56,13 @@
         required
         #password
       />
+
+      <p
+        class="small-text"
+        *ngIf="signupForm.get('password').value === '' && signupForm.get('password').touched"
+      >
+        Password is required!
+      </p>
   </div>
 
   <div class="form-group">
