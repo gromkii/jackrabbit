@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h1>Thank you for signing up, <b>{{ signup.name }}</b>!</h1>
+
+    <p>
+      You have selected our <b>{{ signup.subscriptionType.name }}</b> service,
+      which will cost <b>{{ signup.subscriptionType.price | currency }}</b>.
+    </p>
+
+    <p>
+      A confirmation email will be sent shortly to <b>{{ signup.email}}</b>!
+    </p>
+    <p>
+      <em>But not really since we don't actually have an API for this.</em>
+    </p>
+  </div>
+</div>

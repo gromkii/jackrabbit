@@ -2,14 +2,15 @@ import { Signup } from '../signup/signup.model';
 import { Subscription } from '../shared/subscription.model';
 
 export class SignupService {
-  signupForm:Signup;
-
   // In a larger project, I would probably just decouple this into its own service.
   subscriptionTypes:Subscription[] = [
     new Subscription(0, 'Basic', 1.99),
     new Subscription(1, 'Mid', 5.99),
     new Subscription(2, 'VIP', 12.99)
   ]
+
+  // Set up default values in case of weirdness.
+  signupForm:Signup = new Signup('', '', '', this.subscriptionTypes[0]);
 
   // Store values from signup form into service.
   submitSignupForm(signup:Signup) {
@@ -29,6 +30,10 @@ export class SignupService {
       password:'',
       subscriptionType:null
     }
+  }
+
+  getSignupForm() {
+    return this.signupForm;
   }
 
   // Return list of subscription types.

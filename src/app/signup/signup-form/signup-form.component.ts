@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Signup } from '../signup.model';
 import { SignupService } from '../../shared/signup.service';
@@ -17,7 +18,9 @@ export class SignupFormComponent implements OnInit {
   subscriptionTypes:Subscription[] = [];
 
   constructor(
-    private signupService:SignupService
+    private signupService:SignupService,
+    private router:Router,
+    private route:ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -34,7 +37,11 @@ export class SignupFormComponent implements OnInit {
       subscriptionType:this.signupService.getSubscriptionType(this.signupForm.value.subscriptionType)
     }
 
-    console.log(submitForm);
+    // Should we change this to an observer?
+    this.signupService.submitSignupForm(submitForm);
+
+    this.router.navigate(['../confirmation'], {relativeTo:this.route});
+
   }
 
   // Clear the form, reset button currently uses initForm(), but we want modals.

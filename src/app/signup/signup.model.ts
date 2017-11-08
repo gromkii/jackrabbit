@@ -6,5 +6,10 @@ export class Signup {
     public email:string,
     public password:string,
     public subscriptionType:Subscription
-  ) { }
+  ) {
+    this.name = '';
+    this.email = '';
+    this.password = '';
+    this.subscriptionType = new Subscription(0,'Basic',1.99);
+  }
 }
