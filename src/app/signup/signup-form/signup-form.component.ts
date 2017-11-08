@@ -32,6 +32,7 @@ export class SignupFormComponent implements OnInit {
 
   setSubscription() {
     this.currentSubscription = this.signupService.getSubscriptionType(this.signupForm.value.subscriptionType);
+    console.log(this.signupForm);
   }
 
   // Abstract form data into proper data model, allows room for additional validation.

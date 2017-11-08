@@ -23,11 +23,11 @@ export class ConfirmationComponent implements OnInit {
     this.signup = this.signupService.getSignupForm();
     if (this. signup.name === '') {
       this.router.navigate(['/signup'], {relativeTo:this.route});
-    } else {
-
     }
+  }
 
-
+  onRestart() {
+    this.router.navigate(['/signup'], {relativeTo:this.route});
   }
 
 }
