@@ -10,7 +10,7 @@ import { SubFormComponent } from './signup/sub-form/sub-form.component';
 import { ConfirmFormComponent } from './signup/confirm-form/confirm-form.component';
 
 const appRoutes:Routes = [
-  { path:'', redirectTo:'/signup', pathMatch: 'full' },
+  { path:'', redirectTo:'/signup/name', pathMatch: 'full' },
   { path:'signup', component:SignupComponent,
     children: [
       { path: '', redirectTo:'name', pathMatch:'full' },
