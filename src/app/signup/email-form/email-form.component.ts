@@ -19,6 +19,10 @@ export class EmailFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.signupService.signupForm.name === '') {
+      this.router.navigate(['../name'], {relativeTo:this.route});
+    }
+
     this.emailForm = new FormGroup({
       'email':new FormControl(this.signupService.signupForm.email, [
         Validators.required,

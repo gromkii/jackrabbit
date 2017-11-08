@@ -21,6 +21,10 @@ export class SubFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.signupService.signupForm.name === '') {
+      this.router.navigate(['../name'], {relativeTo:this.route});
+    }
+    
     this.subscriptionTypes = this.signupService.getSubscriptionTypes();
 
     this.subForm = new FormGroup({

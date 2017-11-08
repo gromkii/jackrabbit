@@ -19,6 +19,10 @@ export class PasswordFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.signupService.signupForm.name === '') {
+      this.router.navigate(['../name'], {relativeTo:this.route});
+    }
+
     this.passwordForm = new FormGroup({
       'password':new FormControl(this.signupService.signupForm.password, Validators.required)
     })
