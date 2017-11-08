@@ -1,0 +1,27 @@
+<div class="form-group" [formGroup]="emailForm">
+  <label for="email">Enter your email.</label>
+
+  <input
+    class="form-control"
+    formControlName="email"
+    email="email"
+  />
+
+  <p
+    class="small-text"
+    *ngIf="emailForm.get('email').value === '' && emailForm.get('email').touched"
+  >
+    Email is required!
+  </p>
+
+  <p
+    class="small-text"
+    *ngIf="emailForm.get('email').hasError('email') && emailForm.get('email').touched"
+  >
+    Valid email address required!
+  </p>
+
+</div>
+
+  <button class="btn btn-warning" (click)="navName()">Back</button>
+  <button class="btn btn-primary pull-right" (click)="navPassword()" [disabled]="!emailForm.valid">Forward</button>

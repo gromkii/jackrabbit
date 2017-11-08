@@ -1,0 +1,20 @@
+<div class="form-group" [formGroup]="nameForm">
+  <label for="name">Enter you name.</label>
+
+  <input
+    class="form-control"
+    formControlName="name"
+    name="name"
+  />
+
+  <p
+    class="small-text"
+    *ngIf="nameForm.get('name').value === '' && nameForm.get('name').touched"
+  >
+    Name is required!
+  </p>
+
+</div>
+
+  <button class="btn btn-warning" disabled>Back</button>
+  <button class="btn btn-primary pull-right" (click)="navEmail()" [disabled]="!nameForm.valid">Forward</button>

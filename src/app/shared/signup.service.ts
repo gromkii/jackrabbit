@@ -44,4 +44,12 @@ export class SignupService {
   getSubscriptionType(index:number) {
     return this.subscriptionTypes[index];
   }
+
+  setSignupField(field:string, value:string) {
+    this.signupForm[field] = value;
+  }
+
+  setSubscription(index:number) {
+    this.signupForm.subscriptionType = this.subscriptionTypes[index];
+  }
 }

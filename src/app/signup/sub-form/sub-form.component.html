@@ -1,0 +1,19 @@
+<div class="form-group" [formGroup]="subForm">
+  <label for="email">Subsciption Type</label>
+
+  <select
+    class="form-control"
+    formControlName="subType"
+  >
+    <option
+      *ngFor="let type of subscriptionTypes; let i = index"
+      [value]="i"
+    >
+      {{ type.name }} - {{ type.price | currency }}
+    </option>
+  </select>
+
+</div>
+
+  <button class="btn btn-warning" (click)="navPassword()">Back</button>
+  <button class="btn btn-primary pull-right" (click)="navConfirmation()">Forward</button>
