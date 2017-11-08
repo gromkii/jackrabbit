@@ -24,4 +24,4 @@
 </div>
 
   <button class="btn btn-warning" (click)="navName()">Back</button>
-  <button class="btn btn-primary pull-right" (click)="navPassword()">Forward</button>
+  <button class="btn btn-primary pull-right" (click)="navPassword()" [disabled]="!emailForm.valid">Forward</button>
