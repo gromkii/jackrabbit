@@ -16,6 +16,7 @@ export class SignupFormComponent implements OnInit {
   showResetModal:boolean = false;
   showSubmitModal:boolean = false;
   subscriptionTypes:Subscription[] = [];
+  currentSubscription:Subscription;
 
   constructor(
     private signupService:SignupService,
@@ -25,16 +26,22 @@ export class SignupFormComponent implements OnInit {
 
   ngOnInit() {
     this.subscriptionTypes = this.signupService.getSubscriptionTypes();
+    this.currentSubscription = this.signupService.getSubscriptionType(0);
     this.initForm();
+  }
+
+  setSubscription() {
+    this.currentSubscription = this.signupService.getSubscriptionType(this.signupForm.value.subscriptionType);
   }
 
   // Abstract form data into proper data model, allows room for additional validation.
   onSubmit() {
+
     const submitForm:Signup = {
       name: this.signupForm.value.name,
       email: this.signupForm.value.email,
       password: this.signupForm.value.password,
-      subscriptionType:this.signupService.getSubscriptionType(this.signupForm.value.subscriptionType)
+      subscriptionType:this.currentSubscription
     }
 
     // Should we change this to an observer?
