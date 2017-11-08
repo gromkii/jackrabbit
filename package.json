@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build",
+    "postinstall": "ng build --base-href .",
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
