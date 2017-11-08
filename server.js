@@ -1,10 +1,21 @@
 const express = require('express');
+const path = require('path');
+const http = require('http');
+const bodyParser = require('body-parser');
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.get('/*', (req, res) => {
-  res.sendFile(__dirname + '/dist/index.html')
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-app.listen(3000, () => {
-  console.log('app listen gud');
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
+
+app.set('port', port);
+
+// const server = http.createServer(app);
+//
+app.listen(port, () => console.log('listen'))
